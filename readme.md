@@ -1,4 +1,4 @@
-## `script_scrap_photo` 爬蟲出你鎖定的帳號，所有貼文的照片！！
+## `script_scrap_photo` 爬蟲出你鎖定的IG帳號，所有貼文的照片！！
 
 ### 參數說明
 *	`target_id`: 輸入您想要查找的`ins account`
