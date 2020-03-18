@@ -3,7 +3,7 @@ pd.set_option('display.max_rows', 250)
 import random
 from selenium import webdriver  #從library中引入webdriver
 #from selenium.webdriver.common.by import By
-from fake_useragent import UserAgent # !pip install fake-useragent
+#from fake_useragent import UserAgent # !pip install fake-useragent
 from selenium.webdriver.chrome.options import Options
 import time
 import urllib
