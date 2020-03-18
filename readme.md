@@ -13,7 +13,7 @@
 
 ### 執行方法
 * 程式碼：`script_scrap_photo.py`
-* `python3 -targer_id YOUR_TARGET_ACCT -user_ac YOUR_LOGIN_ACCT -user_pw YOUR_PASSWORD -save_path YOUR_FILE_SAVING_PATH`
+* `python3 script_scrap_photo.py -target_id YOUR_TARGET_ACCT -user_ac YOUR_LOGIN_ACCT -user_pw YOUR_PASSWORD -save_path YOUR_FILE_SAVING_PATH`
 
 
 ### 貼心小提醒
