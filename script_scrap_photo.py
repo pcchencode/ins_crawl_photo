@@ -1,17 +1,27 @@
 import pandas as pd
-pd.set_option('display.max_rows', 250)
 import random
-from selenium import webdriver  #從library中引入webdriver
-#from selenium.webdriver.common.by import By
-#from fake_useragent import UserAgent # !pip install fake-useragent
+import os
+from selenium import webdriver  # 從library中引入webdriver
+# from selenium.webdriver.common.by import By
+# from fake_useragent import UserAgent # !pip install fake-useragent
 from selenium.webdriver.chrome.options import Options
 import time
 import urllib
 import argparse
+pd.set_option('display.max_rows', 250)
+
+def openBrowser():
+    try:
+        browser = webdriver.Chrome('./chromedriver')
+    except OSError:
+        browser = webdriver.Chrome('./chromedriver.exe')
+    
+    return browser
+
 
 def get_all_posts(ins_id, user_ac, user_pw):
-    browser = webdriver.Chrome('./chromedriver') #開啟chrome browser
-    browser.get('https://www.instagram.com/'+str(ins_id)+'/') #開啟想要搜尋的帳號ＩＧ
+    browser = openBrowser() # 開啟chrome browser
+    browser.get('https://www.instagram.com/'+str(ins_id)+'/') # 開啟想要搜尋的帳號ＩＧ
 
     #先進行登入的動作
     button = browser.find_element_by_xpath("//button[@type='button'][text()='登入']") #尋找登入點擊按鈕
@@ -61,7 +71,7 @@ def get_all_posts(ins_id, user_ac, user_pw):
     return post_hrefs
 
 def login_ins_browser(ac, pw):
-    browser = webdriver.Chrome('.//chromedriver')    #開啟chrome browser
+    browser = openBrowser() # 開啟chrome browser
     browser.get('https://www.instagram.com/po_chu_chen/')
 
     #先進行登入的動作
@@ -104,7 +114,8 @@ def scrap_src(post_url, browser):
 
 def download_pic(src_list, save_path):
     for i in range(len(src_list)):
-        save_path_img = save_path+str(time.ctime(time.time()))+'.png'
+        # save_path_img = save_path+'/'+str(time.ctime(time.time()))+'.png'
+        save_path_img = save_path+'/'+str(time.ctime(time.time())).replace(' ','_').replace(':','-')+'123.png'
         pic_file = urllib.request.urlopen(src_list[i]).read()
         f = open(save_path_img, 'wb')
         f.write(pic_file)
@@ -115,6 +126,12 @@ def download_pic(src_list, save_path):
 
 
 def main(target_id, user_ac, user_pw, save_path):
+    if save_path == './default_save':
+        try:
+            os.mkdir('./default_save')
+        except FileExistsError:
+            pass
+
     post_hrefs = get_all_posts(target_id, user_ac, user_pw)
     browser = login_ins_browser(ac=user_ac, pw=user_pw)
     browser.get(post_hrefs[0])
@@ -135,6 +152,6 @@ if __name__ == '__main__':
     parser.add_argument('-target_id', action='store')
     parser.add_argument('-user_ac', action='store')
     parser.add_argument('-user_pw', action='store')
-    parser.add_argument('-save_path', action='store')
+    parser.add_argument('-save_path', action='store', default = './default_save')
     args = parser.parse_args()
     main(args.target_id, args.user_ac, args.user_pw, args.save_path)
