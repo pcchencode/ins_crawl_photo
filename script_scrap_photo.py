@@ -1,13 +1,13 @@
 import pandas as pd
-pd.set_option('display.max_rows', 250)
 import random
-from selenium import webdriver  #從library中引入webdriver
-#from selenium.webdriver.common.by import By
-#from fake_useragent import UserAgent # !pip install fake-useragent
+from selenium import webdriver  # 從library中引入webdriver
+# from selenium.webdriver.common.by import By
+# from fake_useragent import UserAgent # !pip install fake-useragent
 from selenium.webdriver.chrome.options import Options
 import time
 import urllib
 import argparse
+pd.set_option('display.max_rows', 250)
 
 def get_all_posts(ins_id, user_ac, user_pw):
     browser = webdriver.Chrome('./chromedriver') #開啟chrome browser
