@@ -9,12 +9,16 @@
 ### 套件需求
 * `pandas`
 * `selenium`
-* `chromedriver.exe`
+* [chromerdriver](https://chromedriver.storage.googleapis.com/index.html?path=80.0.3987.106/) for selenium
+	- version: 80.0.3987.106
+	- `chrome` is for mac
+	- `chromedriver.exe` is for windows
 
 ### 執行方法
 * 程式碼：`script_scrap_photo.py`
 * clone this repo and cd into it
-* `python3 script_scrap_photo.py -target_id YOUR_TARGET_ACCT -user_ac YOUR_LOGIN_ACCT -user_pw YOUR_PASSWORD -save_path YOUR_FILE_SAVING_PATH`
+* `python3 script_scrap_photo.py -target_id {YOUR_TARGET_ACCT} -user_ac {YOUR_LOGIN_ACCT} -user_pw {YOUR_PASSWORD} -save_path {YOUR_FILE_SAVING_PATH}`
+	- `save_path`: 預設會建立並儲存在資料夾 `default_save` 中
 
 
 ### 貼心小提醒
