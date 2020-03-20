@@ -68,6 +68,7 @@ def get_all_posts(ins_id, user_ac, user_pw):
         browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(5)
     browser.close()
+
     return post_hrefs
 
 def login_ins_browser(ac, pw):
@@ -90,6 +91,7 @@ def login_ins_browser(ac, pw):
     confirm_button = browser.find_element_by_xpath("//button[@type='submit']") #尋找登入點擊按鈕
     confirm_button.click() #點擊登入按鈕
     time.sleep(5)
+    
     return browser
 
 
