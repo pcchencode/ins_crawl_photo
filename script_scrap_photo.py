@@ -21,7 +21,7 @@ def openBrowser():
 
 def get_all_posts(ins_id, user_ac, user_pw):
     browser = openBrowser() # 開啟chrome browser
-    browser.get('https://www.instagram.com/'+str(ins_id)+'/') # 開啟想要搜尋的帳號ＩＧ
+    browser.get('https://www.instagram.com/'+str(ins_id)+'/?hl=zh-tw') # 開啟想要搜尋的帳號ＩＧ
 
     #先進行登入的動作
     button = browser.find_element_by_xpath("//button[@type='button'][text()='登入']") #尋找登入點擊按鈕
@@ -72,7 +72,7 @@ def get_all_posts(ins_id, user_ac, user_pw):
 
 def login_ins_browser(ac, pw):
     browser = openBrowser() # 開啟chrome browser
-    browser.get('https://www.instagram.com/po_chu_chen/')
+    browser.get('https://www.instagram.com/po_chu_chen/?hl=zh-tw')
 
     #先進行登入的動作
     button = browser.find_element_by_xpath("//button[@type='button'][text()='登入']") #尋找登入點擊按鈕
