@@ -132,10 +132,16 @@ def main(target_id, user_ac, user_pw, save_path):
         except FileExistsError:
             pass
 
-    post_hrefs = get_all_posts(target_id, user_ac, user_pw)
+    post_hrefs = get_all_posts(target_id, user_ac, user_pw) # 所有 post 的連結
+    print('總共文章數為：'+str(len(post_hrefs)))
+    print('Total number of posts is:'+str(len(post_hrefs)))
+    print('請輸入您想要抓取的文章數\n'+'Please keyin number of posts you want to scrap')
+    num_input = input()
+    print('您所輸入的文章數為：'+num_input+'，開始抓取')
+    print('The number you keyin is:'+num_input+', start scraping')
     browser = login_ins_browser(ac=user_ac, pw=user_pw)
     browser.get(post_hrefs[0])
-    for i in range(len(post_hrefs)):
+    for i in range(int(num_input)):
         browser.refresh()
         try:
             download_pic(scrap_src(post_hrefs[i], browser), save_path)
