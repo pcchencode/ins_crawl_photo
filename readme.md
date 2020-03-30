@@ -25,7 +25,13 @@
 
 * clone this repo and cd into it
 
-* `python3 script_scrap_photo.py -target_id {YOUR_TARGET_ACCT} -user_ac {YOUR_LOGIN_ACCT} -user_pw {YOUR_PASSWORD} -save_path {YOUR_FILE_SAVING_PATH}`
+* 不指定儲存路徑：
+
+`python3 script_scrap_photo.py -target_id {YOUR_TARGET_ACCT} -user_ac {YOUR_LOGIN_ACCT} -user_pw {YOUR_PASSWORD}`
+
+* 指定儲存路徑：
+
+`python3 script_scrap_photo.py -target_id {YOUR_TARGET_ACCT} -user_ac {YOUR_LOGIN_ACCT} -user_pw {YOUR_PASSWORD} -save_path {YOUR_FILE_SAVING_PATH}`
 
 * 中間段：輸入您想要爬取的文章數
 
