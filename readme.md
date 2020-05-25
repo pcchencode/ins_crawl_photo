@@ -37,3 +37,7 @@
 * 請確保網路連線順利，selenium很容易因為網路不順當掉，小心使用
 
 Happy scraping :))) 
+
+***
+### Old Version for google chrome
+* https://www.slimjet.com/chrome/google-chrome-old-version.php
